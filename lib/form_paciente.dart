@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_print
 
+import 'package:consentimiento_aclaramiento/form_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -10,37 +12,18 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _idController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+  final formController = Get.put(FormController()); // Inyectamos el controlador
 
   @override
-  void dispose() {
-    _idController.dispose();
-    _nameController.dispose();
-    super.dispose();
-  }
-
-  void _submitForm() {
-    if (_formKey.currentState?.validate() ?? false) {
-      // Aquí puedes manejar el envío del formulario
-      print('ID: ${_idController.text}, Nombres: ${_nameController.text}');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Formulario enviado')),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Form(
-        key: _formKey,
         child: Column(
           children: [
             TextFormField(
-              controller: _idController,
+              controller: formController.idController,
               decoration: const InputDecoration(labelText: 'Identificación'),
               keyboardType: TextInputType.number,
               validator: (value) {
@@ -51,7 +34,7 @@ class _FormScreenState extends State<FormScreen> {
               },
             ),
             TextFormField(
-              controller: _nameController,
+              controller: formController.nameController,
               decoration: const InputDecoration(labelText: 'Nombres'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -62,7 +45,7 @@ class _FormScreenState extends State<FormScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _submitForm,
+              onPressed: formController.submitForm,
               child: const Text('Asignar'),
             ),
           ],
