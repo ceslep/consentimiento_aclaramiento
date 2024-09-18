@@ -1,5 +1,6 @@
 import 'package:consentimiento_aclaramiento/datos_paciente.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ConsentimientoScreen extends StatelessWidget {
   const ConsentimientoScreen({super.key});
@@ -14,11 +15,12 @@ class ConsentimientoScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
               onPressed: () {
-                Navigator.push(
+                Get.to(const DatosPaciente());
+                /*  Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const DatosPaciente()),
-                );
+                ); */
               },
               icon: const Icon(Icons.add),
             ),
