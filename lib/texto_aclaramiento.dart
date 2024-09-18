@@ -16,11 +16,6 @@ class ConsentimientoScreen extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 Get.to(const DatosPaciente());
-                /*  Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const DatosPaciente()),
-                ); */
               },
               icon: const Icon(Icons.add),
             ),
