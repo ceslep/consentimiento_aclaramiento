@@ -1,3 +1,4 @@
+import 'package:consentimiento_aclaramiento/datos_paciente.dart';
 import 'package:flutter/material.dart';
 
 class ConsentimientoScreen extends StatelessWidget {
@@ -9,9 +10,25 @@ class ConsentimientoScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.lime,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.save),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DatosPaciente()),
+                );
+              },
+              icon: const Icon(Icons.add),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.save),
+            ),
           ),
         ],
         title: const Text('Aclaramiento Dental'),
