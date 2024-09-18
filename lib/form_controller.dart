@@ -6,11 +6,15 @@ import 'package:get/get.dart';
 class FormController extends GetxController {
   final idController = TextEditingController();
   final nameController = TextEditingController();
+  final ciudadController = TextEditingController();
+  final apoderadoController = TextEditingController();
 
   @override
   void onClose() {
     idController.dispose();
     nameController.dispose();
+    ciudadController.dispose();
+    apoderadoController.dispose();
     super.onClose();
   }
 

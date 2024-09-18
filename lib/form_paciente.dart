@@ -43,6 +43,26 @@ class _FormScreenState extends State<FormScreen> {
                 return null;
               },
             ),
+            TextFormField(
+              controller: formController.ciudadController,
+              decoration: const InputDecoration(labelText: 'Ciudad'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa la ciudad';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: formController.apoderadoController,
+              decoration: const InputDecoration(labelText: 'Apoderado'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa el apoderado';
+                }
+                return null;
+              },
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: formController.submitForm,

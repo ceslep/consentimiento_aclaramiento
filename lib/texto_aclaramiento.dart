@@ -13,11 +13,17 @@ class ConsentimientoScreen extends StatefulWidget {
 class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
   final formController = Get.put(FormController());
   late String nombre;
+  late String identificacion;
+  late String ciudad;
+  late String apoderado;
 
   @override
   void initState() {
     super.initState();
     nombre = formController.nameController.text;
+    identificacion = formController.idController.text;
+    ciudad = formController.ciudadController.text;
+    apoderado = formController.apoderadoController.text;
   }
 
   @override
@@ -33,7 +39,9 @@ class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
                 await Get.to(() => const DatosPaciente());
                 setState(() {
                   nombre = formController.nameController.text;
-                  print(nombre);
+                  identificacion = formController.nameController.text;
+                  ciudad = formController.ciudadController.text;
+                  apoderado = formController.apoderadoController.text;
                 });
               },
               icon: const Icon(Icons.add),
@@ -63,9 +71,9 @@ class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
             ),
             const SizedBox(height: 16.0),
             Text(
-              'Yo $nombre identificado(a) con documento de identidad ________________ '
-              'domiciliado(a) en la Ciudad de Cartago y actuando en nombre propio o como representante legal de '
-              '______________________________________ acepto que:',
+              'Yo $nombre identificado(a) con documento de identidad N° $identificacion'
+              'domiciliado(a) en la Ciudad de $ciudad y actuando en nombre propio o como representante legal de '
+              '$apoderado acepto que:',
               style: const TextStyle(fontSize: 16.0),
             ),
             const SizedBox(height: 16.0),
