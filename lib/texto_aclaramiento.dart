@@ -1,3 +1,4 @@
+import 'package:consentimiento_aclaramiento/configuracion.dart';
 import 'package:consentimiento_aclaramiento/datos_paciente.dart';
 import 'package:consentimiento_aclaramiento/form_controller.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,15 @@ class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
       appBar: AppBar(
         backgroundColor: Colors.lime,
         actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () async {
+                await Get.to(() => const Configuracion());
+              },
+              icon: const Icon(Icons.settings),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
