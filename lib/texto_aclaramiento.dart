@@ -1,6 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'package:consentimiento_aclaramiento/configuracion.dart';
 import 'package:consentimiento_aclaramiento/datos_paciente.dart';
 import 'package:consentimiento_aclaramiento/form_controller.dart';
+import 'package:consentimiento_aclaramiento/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,10 +49,20 @@ class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
               onPressed: () async {
+                final result = await Get.to(() => const Signature());
+                print(result);
+              },
+              icon: const Icon(Icons.document_scanner_sharp),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () async {
                 await Get.to(() => const DatosPaciente());
                 setState(() {
                   nombre = formController.nameController.text;
-                  identificacion = formController.nameController.text;
+                  identificacion = formController.idController.text;
                   ciudad = formController.ciudadController.text;
                   apoderado = formController.apoderadoController.text;
                 });
@@ -81,7 +94,7 @@ class _ConsentimientoScreenState extends State<ConsentimientoScreen> {
             ),
             const SizedBox(height: 16.0),
             Text(
-              'Yo $nombre identificado(a) con documento de identidad N° $identificacion'
+              'Yo $nombre identificado(a) con documento de identidad N° $identificacion '
               'domiciliado(a) en la Ciudad de $ciudad y actuando en nombre propio o como representante legal de '
               '$apoderado acepto que:',
               style: const TextStyle(fontSize: 16.0),
