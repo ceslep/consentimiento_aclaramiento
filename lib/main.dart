@@ -1,8 +1,10 @@
 import 'package:consentimiento_aclaramiento/texto_aclaramiento.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart'; // Para inicializar la localización
 
-void main() {
+void main() async {
+  await initializeDateFormatting('es', null);
   runApp(const MainApp());
 }
 

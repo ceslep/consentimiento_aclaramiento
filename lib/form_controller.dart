@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController {
-  final idController = TextEditingController();
-  final nameController = TextEditingController();
-  final ciudadController = TextEditingController();
-  final apoderadoController = TextEditingController();
+  final idController = TextEditingController(text: '9695141');
+  final nameController =
+      TextEditingController(text: 'César leandro Patiño Vélez');
+  final ciudadController = TextEditingController(text: 'Anserma');
+  final representadoController =
+      TextEditingController(text: 'Yenifer Idarraga');
 
   @override
   void onClose() {
     idController.dispose();
     nameController.dispose();
     ciudadController.dispose();
-    apoderadoController.dispose();
+    representadoController.dispose();
     super.onClose();
   }
 

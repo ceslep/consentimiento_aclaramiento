@@ -54,7 +54,7 @@ class _FormScreenState extends State<FormScreen> {
               },
             ),
             TextFormField(
-              controller: formController.apoderadoController,
+              controller: formController.representadoController,
               decoration: const InputDecoration(labelText: 'Apoderado'),
               validator: (value) {
                 if (value == null || value.isEmpty) {

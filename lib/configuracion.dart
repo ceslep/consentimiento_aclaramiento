@@ -12,7 +12,7 @@ class Configuracion extends StatefulWidget {
 class _ConfiguracionState extends State<Configuracion> {
   String url = '';
   final TextEditingController urlController =
-      TextEditingController(text: 'http://192.');
+      TextEditingController(text: 'http://192.168.0.250/');
   final TextEditingController profesionalController =
       TextEditingController(text: '');
   final TextEditingController direccionController =
