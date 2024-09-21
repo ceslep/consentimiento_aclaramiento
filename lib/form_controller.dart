@@ -1,15 +1,15 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormController extends GetxController {
-  final idController = TextEditingController(text: '9695141');
-  final nameController =
-      TextEditingController(text: 'César leandro Patiño Vélez');
-  final ciudadController = TextEditingController(text: 'Anserma');
+  final idController = TextEditingController(text: !kDebugMode ? '' : '');
+  final nameController = TextEditingController(text: !kDebugMode ? '' : '');
+  final ciudadController = TextEditingController(text: !kDebugMode ? '' : '');
   final representadoController =
-      TextEditingController(text: 'Yenifer Idarraga');
+      TextEditingController(text: !kDebugMode ? '' : '');
 
   @override
   void onClose() {
